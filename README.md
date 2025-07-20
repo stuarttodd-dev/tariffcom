@@ -5,7 +5,10 @@ This repository contains a Laravel-based technical assessment for Tariffcom.
 ---
 
 ## Project Demo
-[Video to be uploaded here]
+
+https://github.com/stuarttodd-dev/tariffcom/assets/123456789/demo.mp4
+
+*Note: If the video doesn't load, you can download it from the root directory as `demo.mp4`*
 
 ## Quick Start
 
