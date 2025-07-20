@@ -22,7 +22,11 @@
         "mockery/mockery": "^1.6",
         "nunomaduro/collision": "^8.6",
         "pestphp/pest": "^3.8",
-        "pestphp/pest-plugin-laravel": "^3.2"
+        "pestphp/pest-plugin-laravel": "^3.2",
+        "phpmd/phpmd": "^2.10",
+        "phpstan/phpstan": "^1.10",
+        "rector/rector": "^1.2",
+        "squizlabs/php_codesniffer": "^3.7"
     },
     "autoload": {
         "psr-4": {
@@ -59,6 +63,24 @@
         "test": [
             "@php artisan config:clear --ansi",
             "@php artisan test"
+        ],
+        "phpcs": "./vendor/bin/phpcs --standard=PSR12 --report=summary app",
+        "phpcbf": "./vendor/bin/phpcbf --standard=PSR12 app",
+        "phpmd": "./vendor/bin/phpmd app text cleancode,codesize,controversial,design,naming,unusedcode --baseline-file=phpmd.baseline.xml",
+        "phpmd:baseline": "./vendor/bin/phpmd app text cleancode,codesize,controversial,design,naming,unusedcode --generate-baseline --baseline-file=phpmd.baseline.xml",
+        "phpstan": "./vendor/bin/phpstan analyse app/ --level=max --memory-limit=512M",
+        "phpstan:baseline": "./vendor/bin/phpstan analyse app/ --level=max --generate-baseline --memory-limit=512M",
+        "rector": "./vendor/bin/rector process --dry-run",
+        "rector:fix": "./vendor/bin/rector process",
+        "standards:check": [
+            "@phpcs",
+            "@phpmd",
+            "@phpstan",
+            "@rector"
+        ],
+        "standards:fix": [
+            "@phpcbf",
+            "@rector:fix"
         ]
     },
     "extra": {

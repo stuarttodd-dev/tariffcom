@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<phpmd-baseline>
+  <violation rule="PHPMD\Rule\CleanCode\StaticAccess" file="app/Http/Controllers/Auth/AuthenticatedSessionController.php"/>
+  <violation rule="PHPMD\Rule\CleanCode\StaticAccess" file="app/Http/Controllers/Auth/ConfirmablePasswordController.php"/>
+  <violation rule="PHPMD\Rule\CleanCode\StaticAccess" file="app/Http/Controllers/Auth/EmailVerificationPromptController.php"/>
+  <violation rule="PHPMD\Rule\CleanCode\StaticAccess" file="app/Http/Controllers/Auth/NewPasswordController.php"/>
+  <violation rule="PHPMD\Rule\CleanCode\StaticAccess" file="app/Http/Controllers/Auth/PasswordController.php"/>
+  <violation rule="PHPMD\Rule\CleanCode\StaticAccess" file="app/Http/Controllers/Auth/PasswordResetLinkController.php"/>
+  <violation rule="PHPMD\Rule\CleanCode\StaticAccess" file="app/Http/Controllers/Auth/RegisteredUserController.php"/>
+  <violation rule="PHPMD\Rule\CleanCode\StaticAccess" file="app/Http/Controllers/ProfileController.php"/>
+  <violation rule="PHPMD\Rule\CleanCode\StaticAccess" file="app/Http/Controllers/UserController.php"/>
+  <violation rule="PHPMD\Rule\CleanCode\StaticAccess" file="app/Http/Requests/Auth/LoginRequest.php"/>
+  <violation rule="PHPMD\Rule\CleanCode\StaticAccess" file="app/Http/Requests/StoreUserRequest.php"/>
+  <violation rule="PHPMD\Rule\CleanCode\StaticAccess" file="app/Http/Requests/UpdateUserRequest.php"/>
+  <violation rule="PHPMD\Rule\CleanCode\StaticAccess" file="app/Http/Resources/UserResource.php"/>
+  <violation rule="PHPMD\Rule\CleanCode\StaticAccess" file="app/Providers/AppServiceProvider.php"/>
+</phpmd-baseline>
