@@ -72,6 +72,21 @@ const showingNavigationDropdown = ref(false);
 
                                     <template #content>
                                         <DropdownLink
+                                            :href="route('users.index')"
+                                        >
+                                          All Users
+                                        </DropdownLink>
+                                        <DropdownLink
+                                            :href="route('users.create')"
+                                        >
+                                          Create User
+                                        </DropdownLink>
+                                        <DropdownLink
+                                            :href="route('users.trashed')"
+                                        >
+                                          Archived Users
+                                        </DropdownLink>
+                                        <DropdownLink
                                             :href="route('profile.edit')"
                                         >
                                             Profile
@@ -164,6 +179,21 @@ const showingNavigationDropdown = ref(false);
                         </div>
 
                         <div class="mt-3 space-y-1">
+                            <ResponsiveNavLink
+                                :href="route('users.index')"
+                            >
+                              All Users
+                            </ResponsiveNavLink>
+                            <ResponsiveNavLink
+                                :href="route('users.create')"
+                            >
+                              Create User
+                            </ResponsiveNavLink>
+                            <ResponsiveNavLink
+                                :href="route('users.trashed')"
+                            >
+                              Archived Users
+                            </ResponsiveNavLink>
                             <ResponsiveNavLink :href="route('profile.edit')">
                                 Profile
                             </ResponsiveNavLink>
