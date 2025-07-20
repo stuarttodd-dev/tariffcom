@@ -9,6 +9,11 @@ This repository contains a Laravel-based technical assessment for Tariffcom.
 
 ## Quick Start
 
+You can log in to the application using the following test credentials:
+
+- **Email:** test@example.com
+- **Password:** password
+
 ### Prerequisites
 - [Docker](https://www.docker.com/) and Docker Compose
 - [Node.js](https://nodejs.org/) (for local development, optional if using Docker for everything)
