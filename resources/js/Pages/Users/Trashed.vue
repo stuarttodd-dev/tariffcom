@@ -1,10 +1,10 @@
 <template>
-  <Head title="Trashed Users" />
+  <Head title="Archived Users" />
 
   <AuthenticatedLayout>
     <template #header>
       <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-        Trashed Users
+        Archived Users
       </h2>
     </template>
 
@@ -17,7 +17,7 @@
                 <input
                   v-model="search"
                   type="text"
-                  placeholder="Search trashed users..."
+                  placeholder="Search archived users..."
                   class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
                   @input="debouncedSearch"
                 />
@@ -32,7 +32,7 @@
             </div>
 
             <div class="overflow-x-auto">
-              <table v-if="users.data.length" class="min-w-full divide-y divide-gray-200">
+              <table v-if="users.length" class="min-w-full divide-y divide-gray-200">
                 <thead class="bg-gray-50">
                   <tr>
                     <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
@@ -53,7 +53,7 @@
                   </tr>
                 </thead>
                 <tbody class="bg-white divide-y divide-gray-200">
-                  <tr v-for="user in users.data" :key="user.id">
+                  <tr v-for="user in users" :key="user.id">
                     <td class="px-6 py-4 whitespace-nowrap">
                       <div class="text-sm font-medium text-gray-900">
                         {{ user.full_name }}
@@ -87,7 +87,7 @@
                 <svg class="w-16 h-16 text-gray-300 mb-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M9 17v-2a4 4 0 018 0v2m-4-4a4 4 0 100-8 4 4 0 000 8zm-6 8a6 6 0 0112 0H3z" />
                 </svg>
-                <p class="text-gray-500 text-lg">No trashed users found.</p>
+                <p class="text-gray-500 text-lg">No archived users found.</p>
               </div>
             </div>
 

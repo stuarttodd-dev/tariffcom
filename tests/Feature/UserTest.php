@@ -70,10 +70,22 @@ it('does not update password when not provided', function (): void {
 })->todo();
 
 it('soft deletes a user', function (): void {
-})->todo();
+    $user = User::factory()->create();
+    $admin = User::factory()->create(['type' => 'admin']);
+    $this->actingAs($admin)
+        ->delete(route('users.destroy', $user))
+        ->assertRedirect(route('users.index'));
+    $this->assertSoftDeleted('users', ['id' => $user->id]);
+});
 
 it('lists trashed users', function (): void {
-})->todo();
+    $user = User::factory()->create();
+    $user->delete();
+    $this->actingAs($user)
+        ->get(route('users.trashed'))
+        ->assertStatus(200)
+        ->assertSee($user->firstname);
+});
 
 it('restores a soft deleted user', function (): void {
 })->todo();

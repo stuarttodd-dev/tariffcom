@@ -31,7 +31,7 @@
                 <Link
                   :href="route('users.trashed')"
                 >
-                  <SecondaryButton>Trashed Users</SecondaryButton>
+                  <SecondaryButton>Archived Users</SecondaryButton>
                 </Link>
               </div>
             </div>

@@ -141,7 +141,17 @@ parameters:
 			path: app/Http/Controllers/ProfileController.php
 
 		-
+			message: "#^Access to an undefined property App\\\\Models\\\\User\\:\\:\\$id\\.$#"
+			count: 1
+			path: app/Http/Controllers/UserController.php
+
+		-
 			message: "#^Call to an undefined method Illuminate\\\\Database\\\\Eloquent\\\\Builder\\<App\\\\Models\\\\User\\>\\:\\:search\\(\\)\\.$#"
+			count: 2
+			path: app/Http/Controllers/UserController.php
+
+		-
+			message: "#^Cannot access property \\$id on mixed\\.$#"
 			count: 1
 			path: app/Http/Controllers/UserController.php
 
@@ -149,3 +159,18 @@ parameters:
 			message: "#^Cannot access property \\$id on mixed\\.$#"
 			count: 1
 			path: app/Http/Requests/ProfileUpdateRequest.php
+
+		-
+			message: "#^Method App\\\\Models\\\\User\\:\\:scopeSearch\\(\\) has parameter \\$query with generic class Illuminate\\\\Database\\\\Eloquent\\\\Builder but does not specify its types\\: TModel$#"
+			count: 1
+			path: app/Models/User.php
+
+		-
+			message: "#^Method App\\\\Models\\\\User\\:\\:scopeSearch\\(\\) return type with generic class Illuminate\\\\Database\\\\Eloquent\\\\Builder does not specify its types\\: TModel$#"
+			count: 1
+			path: app/Models/User.php
+
+		-
+			message: "#^Method App\\\\Models\\\\User\\:\\:scopeSearch\\(\\) should return Illuminate\\\\Database\\\\Eloquent\\\\Builder but returns Illuminate\\\\Database\\\\Query\\\\Builder\\.$#"
+			count: 1
+			path: app/Models/User.php
