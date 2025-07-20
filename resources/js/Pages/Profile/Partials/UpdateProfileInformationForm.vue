@@ -5,20 +5,20 @@ import PrimaryButton from '@/Components/PrimaryButton.vue';
 import TextInput from '@/Components/TextInput.vue';
 import { Link, useForm, usePage } from '@inertiajs/vue3';
 
-defineProps({
-    mustVerifyEmail: {
-        type: Boolean,
-    },
-    status: {
-        type: String,
+const props = defineProps({
+    mustVerifyEmail: Boolean,
+    status: String,
+    user: {
+        type: Object,
+        required: true,
     },
 });
 
-const user = usePage().props.auth.user;
-
 const form = useForm({
-    name: user.name,
-    email: user.email,
+    firstname: props.user.firstname ?? '',
+    middlename: props.user.middlename ?? '',
+    lastname: props.user.lastname ?? '',
+    email: props.user.email,
 });
 </script>
 
@@ -38,25 +38,45 @@ const form = useForm({
             @submit.prevent="form.patch(route('profile.update'))"
             class="mt-6 space-y-6"
         >
-            <div>
-                <InputLabel for="name" value="Name" />
-
-                <TextInput
-                    id="name"
-                    type="text"
-                    class="mt-1 block w-full"
-                    v-model="form.name"
-                    required
-                    autofocus
-                    autocomplete="name"
-                />
-
-                <InputError class="mt-2" :message="form.errors.name" />
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div>
+                    <InputLabel for="firstname" value="First Name" />
+                    <TextInput
+                        id="firstname"
+                        type="text"
+                        class="mt-1 block w-full"
+                        v-model="form.firstname"
+                        required
+                        autocomplete="given-name"
+                    />
+                    <InputError class="mt-2" :message="form.errors.firstname" />
+                </div>
+                <div>
+                    <InputLabel for="middlename" value="Middle Name" />
+                    <TextInput
+                        id="middlename"
+                        type="text"
+                        class="mt-1 block w-full"
+                        v-model="form.middlename"
+                        autocomplete="additional-name"
+                    />
+                    <InputError class="mt-2" :message="form.errors.middlename" />
+                </div>
+                <div>
+                    <InputLabel for="lastname" value="Last Name" />
+                    <TextInput
+                        id="lastname"
+                        type="text"
+                        class="mt-1 block w-full"
+                        v-model="form.lastname"
+                        required
+                        autocomplete="family-name"
+                    />
+                    <InputError class="mt-2" :message="form.errors.lastname" />
+                </div>
             </div>
-
             <div>
                 <InputLabel for="email" value="Email" />
-
                 <TextInput
                     id="email"
                     type="email"
@@ -65,7 +85,6 @@ const form = useForm({
                     required
                     autocomplete="username"
                 />
-
                 <InputError class="mt-2" :message="form.errors.email" />
             </div>
 
