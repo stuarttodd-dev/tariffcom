@@ -14,7 +14,7 @@ class UpdateUserRequest extends FormRequest
 
     public function rules(): array
     {
-        $rules = [
+        return [
             'prefixname' => ['nullable', Rule::in(['Mr', 'Mrs', 'Ms'])],
             'firstname' => ['required', 'string', 'max:255'],
             'middlename' => ['nullable', 'string', 'max:255'],
@@ -25,18 +25,12 @@ class UpdateUserRequest extends FormRequest
                 'string',
                 'email',
                 'max:255',
+                Rule::unique('users', 'email')->ignore($this->route('user')),
             ],
             'password' => ['nullable', 'string', 'min:8', 'confirmed'],
             'photo' => ['nullable', 'string'],
             'type' => ['nullable', 'string', 'max:255'],
         ];
-
-        $user = $this->user();
-        if ($user && $this->input('email') !== $user->email) {
-            $rules['email'][] = Rule::unique('users', 'email');
-        }
-
-        return $rules;
     }
 
     public function messages(): array

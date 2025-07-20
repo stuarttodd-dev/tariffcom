@@ -69,7 +69,7 @@ describe('User Accessors', function (): void {
             'lastname' => 'Doe',
         ]);
 
-        expect($user->full_name)->toBe('John Michael Doe');
+        expect($user->full_name)->toBe('John M. Doe');
     });
 
     it('generates full name without middle name', function (): void {
@@ -134,7 +134,7 @@ describe('User Accessors', function (): void {
 describe('User Relationships', function (): void {
     it('has many details', function (): void {
         $user = User::factory()->create();
-        $details = Detail::factory()->count(3)->create(['user_id' => $user->id]);
+        Detail::factory()->count(3)->create(['user_id' => $user->id]);
 
         expect($user->details)->toHaveCount(7); // 4 from observer + 3 manual
         expect($user->details->first())->toBeInstanceOf(Detail::class);

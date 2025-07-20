@@ -72,7 +72,7 @@ class User extends Authenticatable
      */
     public function getFullNameAttribute(): string
     {
-        $parts = array_filter([$this->firstname, $this->middlename, $this->lastname]);
+        $parts = array_filter([$this->firstname, $this->getMiddleInitialAttribute(), $this->lastname]);
         return implode(' ', $parts);
     }
 

@@ -32,7 +32,7 @@ describe('UserResource', function (): void {
         expect($data['email'])->toBe('john@example.com');
         expect($data['photo'])->toBe('https://example.com/photo.jpg');
         expect($data['type'])->toBe('admin');
-        expect($data['full_name'])->toBe('John Michael Doe');
+        expect($data['full_name'])->toBe('John M. Doe');
         expect($data['middle_initial'])->toBe('M.');
         expect($data['gender'])->toBe('Male');
     });

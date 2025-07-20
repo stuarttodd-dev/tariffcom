@@ -24,7 +24,7 @@ describe('UserObserver', function (): void {
         $avatarDetail = $user->details->where('key', 'Avatar')->first();
         $genderDetail = $user->details->where('key', 'Gender')->first();
 
-        expect($fullNameDetail->value)->toBe('John Michael Doe');
+        expect($fullNameDetail->value)->toBe('John M. Doe');
         expect($middleInitialDetail->value)->toBe('M.');
         expect($avatarDetail->value)->toBe('https://example.com/photo.jpg');
         expect($genderDetail->value)->toBe('Male');
@@ -37,7 +37,6 @@ describe('UserObserver', function (): void {
             'lastname' => 'Doe',
         ]);
 
-        // Update the user
         $user->update([
             'prefixname' => 'Mrs',
             'firstname' => 'Jane',
@@ -55,7 +54,7 @@ describe('UserObserver', function (): void {
         $avatarDetail = $user->details->where('key', 'Avatar')->first();
         $genderDetail = $user->details->where('key', 'Gender')->first();
 
-        expect($fullNameDetail->value)->toBe('Jane Elizabeth Smith');
+        expect($fullNameDetail->value)->toBe('Jane E. Smith');
         expect($middleInitialDetail->value)->toBe('E.');
         expect($avatarDetail->value)->toBe('https://example.com/new-photo.jpg');
         expect($genderDetail->value)->toBe('Female');
@@ -67,9 +66,7 @@ describe('UserObserver', function (): void {
         expect($user->details)->toHaveCount(4);
         
         $user->delete();
-        
-        // After soft delete, the details should also be soft deleted
-        // We need to use withTrashed to see the soft deleted user
+
         $userWithTrashed = User::withTrashed()->find($user->id);
         expect($userWithTrashed->details)->toHaveCount(0);
     });
@@ -140,25 +137,20 @@ describe('UserObserver', function (): void {
         $user = User::factory()->create();
         $originalDetailCount = $user->details->count(); // Should be 4 from observer
 
-        // Create an extra detail manually
-        $extraDetail = Detail::factory()->create([
+        Detail::factory()->create([
             'user_id' => $user->id,
             'key' => 'Extra Detail',
             'value' => 'This should be removed',
         ]);
 
-        // Refresh the user to get the updated details
         $user->refresh();
 
         expect($user->details)->toHaveCount($originalDetailCount + 1); // Should be 5
 
-        // Update the user to trigger observer
         $user->update(['firstname' => 'Updated']);
 
-        // Refresh the user to get the updated details
         $user->refresh();
 
-        // Should have exactly 4 details (the standard ones)
         expect($user->details)->toHaveCount(4);
         expect($user->details->where('key', 'Extra Detail'))->toHaveCount(0);
     });

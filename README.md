@@ -67,6 +67,11 @@ You can log in to the application using the following test credentials:
   docker-compose exec app npm test
   ```
 - **End-to-End Tests (Playwright):**
+  Requires the following test credentials to work:
+
+- **Email:** test@example.com
+- **Password:** password
+- 
   ```bash
   docker-compose exec app npm run test:e2e
   ```

@@ -196,11 +196,6 @@ parameters:
 			path: app/Http/Requests/StoreUserRequest.php
 
 		-
-			message: "#^Cannot access property \\$email on mixed\\.$#"
-			count: 1
-			path: app/Http/Requests/UpdateUserRequest.php
-
-		-
 			message: "#^Method App\\\\Http\\\\Requests\\\\UpdateUserRequest\\:\\:messages\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: app/Http/Requests/UpdateUserRequest.php

@@ -86,3 +86,24 @@ test('correct password must be provided to delete account', function (): void {
 
     $this->assertNotNull($user->fresh());
 });
+
+test('profile update fails if email is already taken by another user', function (): void {
+    $user = \App\Models\User::factory()->create([
+        'email' => 'user1@example.com',
+    ]);
+    $otherUser = \App\Models\User::factory()->create([
+        'email' => 'user2@example.com',
+    ]);
+
+    $response = $this
+        ->actingAs($user)
+        ->patch('/profile', [
+            'firstname' => $user->firstname,
+            'lastname' => $user->lastname,
+            'email' => $otherUser->email, // Try to use another user's email
+        ]);
+
+    $response->assertSessionHasErrors('email');
+
+    $this->assertSame('user1@example.com', $user->fresh()->email);
+});
