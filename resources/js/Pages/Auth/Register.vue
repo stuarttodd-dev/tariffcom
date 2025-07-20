@@ -7,7 +7,11 @@ import TextInput from '@/Components/TextInput.vue';
 import { Head, Link, useForm } from '@inertiajs/vue3';
 
 const form = useForm({
-    name: '',
+    prefixname: '',
+    firstname: '',
+    middlename: '',
+    lastname: '',
+    suffixname: '',
     email: '',
     password: '',
     password_confirmation: '',
@@ -25,20 +29,73 @@ const submit = () => {
         <Head title="Register" />
 
         <form @submit.prevent="submit">
-            <div>
-                <InputLabel for="name" value="Name" />
+            <div class="grid grid-cols-1 md:grid-cols-5 gap-4">
+                <div>
+                    <InputLabel for="prefixname" value="Prefix" />
+                    <select
+                        id="prefixname"
+                        class="mt-1 block w-full border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm"
+                        v-model="form.prefixname"
+                    >
+                        <option value="">Select Prefix</option>
+                        <option value="Mr">Mr</option>
+                        <option value="Mrs">Mrs</option>
+                        <option value="Ms">Ms</option>
+                        <option value="Dr">Dr</option>
+                    </select>
+                    <InputError class="mt-2" :message="form.errors.prefixname" />
+                </div>
 
-                <TextInput
-                    id="name"
-                    type="text"
-                    class="mt-1 block w-full"
-                    v-model="form.name"
-                    required
-                    autofocus
-                    autocomplete="name"
-                />
+                <div>
+                    <InputLabel for="firstname" value="First Name" />
+                    <TextInput
+                        id="firstname"
+                        type="text"
+                        class="mt-1 block w-full"
+                        v-model="form.firstname"
+                        required
+                        autofocus
+                        autocomplete="given-name"
+                    />
+                    <InputError class="mt-2" :message="form.errors.firstname" />
+                </div>
 
-                <InputError class="mt-2" :message="form.errors.name" />
+                <div>
+                    <InputLabel for="middlename" value="Middle Name" />
+                    <TextInput
+                        id="middlename"
+                        type="text"
+                        class="mt-1 block w-full"
+                        v-model="form.middlename"
+                        autocomplete="additional-name"
+                    />
+                    <InputError class="mt-2" :message="form.errors.middlename" />
+                </div>
+
+                <div>
+                    <InputLabel for="lastname" value="Last Name" />
+                    <TextInput
+                        id="lastname"
+                        type="text"
+                        class="mt-1 block w-full"
+                        v-model="form.lastname"
+                        required
+                        autocomplete="family-name"
+                    />
+                    <InputError class="mt-2" :message="form.errors.lastname" />
+                </div>
+
+                <div>
+                    <InputLabel for="suffixname" value="Suffix" />
+                    <TextInput
+                        id="suffixname"
+                        type="text"
+                        class="mt-1 block w-full"
+                        v-model="form.suffixname"
+                        autocomplete="honorific-suffix"
+                    />
+                    <InputError class="mt-2" :message="form.errors.suffixname" />
+                </div>
             </div>
 
             <div class="mt-4">

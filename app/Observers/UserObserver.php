@@ -27,7 +27,6 @@ class UserObserver
      */
     public function deleted(User $user): void
     {
-        // Soft delete associated details when user is soft deleted
         if ($user->isForceDeleting()) {
             $user->details()->forceDelete();
         }
