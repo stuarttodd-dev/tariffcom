@@ -55,4 +55,22 @@ class UserController extends Controller
             'filters' => request()->only(['search']),
         ]);
     }
+
+    public function restore(int $userId): RedirectResponse
+    {
+        $user = User::onlyTrashed()->findOrFail($userId);
+        $user->restore();
+
+        return redirect()->route('users.trashed')
+            ->with('success', 'User restored successfully.');
+    }
+
+    public function delete(int $userId): RedirectResponse
+    {
+        $user = User::onlyTrashed()->findOrFail($userId);
+        $user->forceDelete();
+
+        return redirect()->route('users.trashed')
+            ->with('success', 'User permanently deleted.');
+    }
 }

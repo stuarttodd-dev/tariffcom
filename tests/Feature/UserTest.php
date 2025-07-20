@@ -88,7 +88,19 @@ it('lists trashed users', function (): void {
 });
 
 it('restores a soft deleted user', function (): void {
-})->todo();
+    $user = User::factory()->create();
+    $user->delete();
+    $this->actingAs($user)
+        ->post(route('users.restore', $user->id))
+        ->assertRedirect(route('users.trashed'));
+    $this->assertDatabaseHas('users', ['id' => $user->id, 'deleted_at' => null]);
+});
 
 it('permanently deletes a soft deleted user', function (): void {
-})->todo();
+    $user = User::factory()->create();
+    $user->delete();
+    $this->actingAs($user)
+        ->delete(route('users.delete', $user->id))
+        ->assertRedirect(route('users.trashed'));
+    $this->assertDatabaseMissing('users', ['id' => $user->id]);
+});
