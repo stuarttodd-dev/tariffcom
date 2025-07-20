@@ -1,8 +1,11 @@
 # Tariffcom Laravel Tech Test
 
-This repository contains a Laravel-based technical assessment for candidates applying to Tariffcom. The project demonstrates your ability to work with a modern Laravel application, including setup, development, and testing practices.
+This repository contains a Laravel-based technical assessment for Tariffcom.
 
 ---
+
+## Project Demo
+[Video to be uploaded here]
 
 ## Quick Start
 
@@ -75,5 +78,22 @@ This repository contains a Laravel-based technical assessment for candidates app
   ```
 
 These scripts run static analysis, code style, and quality tools to help ensure your code meets project standards.
+
+---
+
+## Simulate the Full Pipeline Locally
+
+You can run the full test and standards pipeline locally with:
+
+```bash
+./scripts/test-pipeline.sh
+```
+
+This script will:
+- Run all PHP (Pest) tests
+- Run all JavaScript (Jest) tests
+- Check code standards (PHPStan, PHPMD, PHPCS, Rector)
+- Run end-to-end tests (if configured)
+- Print a summary of results just like a CI pipeline
 
 ---
