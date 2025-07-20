@@ -108,3 +108,14 @@ This script will:
 - Print a summary of results just like a CI pipeline
 
 ---
+
+## Potential Improvements
+This section outlines potential enhancements.
+
+- **Additional Playwright E2E Tests**: Expand test coverage to include user registration flow, profile management, and user CRUD operations
+- **Unit Test Coverage**: Increase coverage for API resources, model relationships, and form request validation
+- **Success Notifications**: Implement toast notifications for all CRUD operations and form submissions
+- **Error Handling**: Improve user-friendly error messages and validation feedback
+- **Model Observer Pattern**: The application uses a UserObserver for handling user lifecycle events instead of creating separate events and listeners, which provides a cleaner and more maintainable approach to model event handling
+
+---
