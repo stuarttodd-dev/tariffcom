@@ -6,6 +6,8 @@ use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\Rule;
 use Inertia\Inertia;
 use Inertia\Response;
 
@@ -25,6 +27,76 @@ class UserController extends Controller
             'users' => $users,
             'filters' => request()->only(['search']),
         ]);
+    }
+
+    public function create(): Response
+    {
+        return Inertia::render('Users/Create');
+    }
+
+    public function show(User $user): Response
+    {
+        return Inertia::render('Users/Show', [
+            'user' => $user,
+        ]);
+    }
+
+    public function store(Request $request): RedirectResponse
+    {
+        $validated = $request->validate([
+            'prefixname' => ['nullable', Rule::in(['Mr', 'Mrs', 'Ms'])],
+            'firstname' => ['required', 'string', 'max:255'],
+            'middlename' => ['nullable', 'string', 'max:255'],
+            'lastname' => ['required', 'string', 'max:255'],
+            'suffixname' => ['nullable', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'photo' => ['nullable', 'string'],
+            'type' => ['nullable', 'string', 'max:255'],
+        ]);
+
+        $validated['password'] = Hash::make($validated['password']);
+        $validated['type'] ??= 'user';
+
+        $user = User::create($validated);
+
+        return redirect()->route('users.show', $user)
+            ->with('success', 'User created successfully.');
+    }
+
+    public function edit(User $user): Response
+    {
+        return Inertia::render('Users/Edit', [
+            'user' => $user,
+        ]);
+    }
+
+    public function update(Request $request, User $user): RedirectResponse
+    {
+        $validated = $request->validate([
+            'prefixname' => ['nullable', Rule::in(['Mr', 'Mrs', 'Ms'])],
+            'firstname' => ['required', 'string', 'max:255'],
+            'middlename' => ['nullable', 'string', 'max:255'],
+            'lastname' => ['required', 'string', 'max:255'],
+            'suffixname' => ['nullable', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', Rule::unique('users')->ignore($user->id)],
+            'password' => ['nullable', 'string', 'min:8', 'confirmed'],
+            'photo' => ['nullable', 'string'],
+            'type' => ['nullable', 'string', 'max:255'],
+        ]);
+
+        if (isset($validated['password'])) {
+            $validated['password'] = Hash::make($validated['password']);
+        }
+
+        if (!isset($validated['password'])) {
+            unset($validated['password']);
+        }
+
+        $user->update($validated);
+
+        return redirect()->route('users.show', $user)
+            ->with('success', 'User updated successfully.');
     }
 
     public function destroy(Request $request, User $user): RedirectResponse
