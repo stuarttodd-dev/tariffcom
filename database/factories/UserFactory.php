@@ -2,12 +2,13 @@
 
 namespace Database\Factories;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\User>
+ * @extends Factory<User>
  */
 class UserFactory extends Factory
 {
@@ -23,8 +24,10 @@ class UserFactory extends Factory
      */
     public function definition(): array
     {
+        $prefixes = ['Mr', 'Mrs', 'Ms'];
+        
         return [
-            'prefixname' => fake()->randomElement(['Mr', 'Mrs', 'Ms']),
+            'prefixname' => fake()->randomElement($prefixes),
             'firstname' => fake()->firstName(),
             'middlename' => fake()->optional()->firstName(),
             'lastname' => fake()->lastName(),
@@ -32,9 +35,9 @@ class UserFactory extends Factory
             'email' => fake()->unique()->safeEmail(),
             'email_verified_at' => now(),
             'password' => static::$password ??= Hash::make('password'),
+            'photo' => fake()->optional()->imageUrl(),
+            'type' => fake()->randomElement(['user', 'admin']),
             'remember_token' => Str::random(10),
-            'photo' => null,
-            'type' => 'user',
         ];
     }
 
@@ -45,6 +48,36 @@ class UserFactory extends Factory
     {
         return $this->state(fn (array $attributes) => [
             'email_verified_at' => null,
+        ]);
+    }
+
+    /**
+     * Create an admin user.
+     */
+    public function admin(): static
+    {
+        return $this->state(fn (array $attributes) => [
+            'type' => 'admin',
+        ]);
+    }
+
+    /**
+     * Create a regular user.
+     */
+    public function user(): static
+    {
+        return $this->state(fn (array $attributes) => [
+            'type' => 'user',
+        ]);
+    }
+
+    /**
+     * Create a user with a specific prefix.
+     */
+    public function withPrefix(string $prefix): static
+    {
+        return $this->state(fn (array $attributes) => [
+            'prefixname' => $prefix,
         ]);
     }
 }

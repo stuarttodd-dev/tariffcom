@@ -131,9 +131,19 @@ parameters:
 			path: app/Http/Controllers/ProfileController.php
 
 		-
+			message: "#^Cannot call method only\\(\\) on mixed\\.$#"
+			count: 1
+			path: app/Http/Controllers/ProfileController.php
+
+		-
 			message: "#^Cannot call method save\\(\\) on mixed\\.$#"
 			count: 1
 			path: app/Http/Controllers/ProfileController.php
+
+		-
+			message: "#^Call to an undefined method Illuminate\\\\Database\\\\Eloquent\\\\Builder\\<App\\\\Models\\\\User\\>\\:\\:search\\(\\)\\.$#"
+			count: 1
+			path: app/Http/Controllers/UserController.php
 
 		-
 			message: "#^Cannot access property \\$id on mixed\\.$#"

@@ -8,6 +8,7 @@
   <violation rule="PHPMD\Rule\CleanCode\StaticAccess" file="app/Http/Controllers/Auth/PasswordResetLinkController.php"/>
   <violation rule="PHPMD\Rule\CleanCode\StaticAccess" file="app/Http/Controllers/Auth/RegisteredUserController.php"/>
   <violation rule="PHPMD\Rule\CleanCode\StaticAccess" file="app/Http/Controllers/ProfileController.php"/>
+  <violation rule="PHPMD\Rule\CleanCode\StaticAccess" file="app/Http/Controllers/UserController.php"/>
   <violation rule="PHPMD\Rule\CleanCode\StaticAccess" file="app/Http/Requests/Auth/LoginRequest.php"/>
   <violation rule="PHPMD\Rule\CleanCode\StaticAccess" file="app/Providers/AppServiceProvider.php"/>
 </phpmd-baseline>

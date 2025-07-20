@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Query\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -64,5 +64,18 @@ class User extends Authenticatable
             $this->lastname ?? '',
         ]);
         return trim(implode(' ', $parts));
+    }
+
+    public function scopeSearch(Builder $query, string $search): Builder
+    {
+        if ($search === '' || $search === '0') {
+            return $query;
+        }
+
+        return $query->whereAny([
+            'firstname',
+            'lastname',
+            'email',
+        ], 'LIKE', sprintf('%%%s%%', $search));
     }
 }
