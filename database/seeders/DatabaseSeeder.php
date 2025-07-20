@@ -20,6 +20,6 @@ class DatabaseSeeder extends Seeder
             'type' => 'admin'
         ]);
 
-        User::factory(5)->create();
+        User::factory(25)->create();
     }
 }

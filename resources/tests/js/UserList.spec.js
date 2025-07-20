@@ -1,4 +1,3 @@
-// import UserList from '@/Components/UserList.vue'
 describe.skip('UserList.vue', () => {
     it('shows Create User button on the page', () => {
     })
