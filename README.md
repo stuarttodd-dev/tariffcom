@@ -6,9 +6,12 @@ This repository contains a Laravel-based technical assessment for Tariffcom.
 
 ## Project Demo
 
-https://github.com/stuarttodd-dev/tariffcom/assets/123456789/demo.mp4
+<video width="100%" controls>
+  <source src="http://137.184.25.10/demo.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
 
-*Note: If the video doesn't load, you can download it from the root directory as `demo.mp4`*
+*Note: If the video doesn't load, you can access it directly at [http://137.184.25.10/demo.mp4](http://137.184.25.10/demo.mp4)*
 
 ## Quick Start
 
