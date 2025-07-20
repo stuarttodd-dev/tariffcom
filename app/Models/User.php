@@ -10,7 +10,8 @@ use Illuminate\Notifications\Notifiable;
 class User extends Authenticatable
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
-    use HasFactory, Notifiable;
+    use HasFactory;
+    use Notifiable;
 
     /**
      * The attributes that are mass assignable.
@@ -18,9 +19,15 @@ class User extends Authenticatable
      * @var list<string>
      */
     protected $fillable = [
-        'name',
+        'prefixname',
+        'firstname',
+        'middlename',
+        'lastname',
+        'suffixname',
         'email',
         'password',
+        'photo',
+        'type',
     ];
 
     /**
@@ -44,5 +51,18 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    /**
+     * Get the user's full name for compatibility.
+     */
+    public function getNameAttribute(): string
+    {
+        $parts = array_filter([
+            $this->firstname ?? '',
+            $this->middlename ?? '',
+            $this->lastname ?? '',
+        ]);
+        return trim(implode(' ', $parts));
     }
 }

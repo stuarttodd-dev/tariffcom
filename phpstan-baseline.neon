@@ -71,7 +71,22 @@ parameters:
 			path: app/Http/Controllers/Auth/RegisteredUserController.php
 
 		-
+			message: "#^Access to an undefined property Illuminate\\\\Http\\\\Request\\:\\:\\$middlename\\.$#"
+			count: 1
+			path: app/Http/Controllers/Auth/RegisteredUserController.php
+
+		-
 			message: "#^Access to an undefined property Illuminate\\\\Http\\\\Request\\:\\:\\$password\\.$#"
+			count: 1
+			path: app/Http/Controllers/Auth/RegisteredUserController.php
+
+		-
+			message: "#^Access to an undefined property Illuminate\\\\Http\\\\Request\\:\\:\\$prefixname\\.$#"
+			count: 1
+			path: app/Http/Controllers/Auth/RegisteredUserController.php
+
+		-
+			message: "#^Access to an undefined property Illuminate\\\\Http\\\\Request\\:\\:\\$suffixname\\.$#"
 			count: 1
 			path: app/Http/Controllers/Auth/RegisteredUserController.php
 
@@ -121,216 +136,6 @@ parameters:
 			path: app/Http/Controllers/ProfileController.php
 
 		-
-			message: "#^Access to an undefined property App\\\\Models\\\\User\\:\\:\\$id\\.$#"
-			count: 2
-			path: app/Http/Controllers/UserController.php
-
-		-
-			message: "#^Call to an undefined static method App\\\\Models\\\\User\\:\\:create\\(\\)\\.$#"
-			count: 1
-			path: app/Http/Controllers/UserController.php
-
-		-
-			message: "#^Cannot call method orderBy\\(\\) on Illuminate\\\\Database\\\\Eloquent\\\\Builder\\<App\\\\Models\\\\User\\>\\|null\\.$#"
-			count: 2
-			path: app/Http/Controllers/UserController.php
-
-		-
-			message: "#^Cannot cast mixed to string\\.$#"
-			count: 2
-			path: app/Http/Controllers/UserController.php
-
-		-
 			message: "#^Cannot access property \\$id on mixed\\.$#"
 			count: 1
 			path: app/Http/Requests/ProfileUpdateRequest.php
-
-		-
-			message: "#^Method App\\\\Http\\\\Requests\\\\StoreUserRequest\\:\\:messages\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: app/Http/Requests/StoreUserRequest.php
-
-		-
-			message: "#^Access to an undefined property App\\\\Http\\\\Requests\\\\UpdateUserRequest\\:\\:\\$user\\.$#"
-			count: 1
-			path: app/Http/Requests/UpdateUserRequest.php
-
-		-
-			message: "#^Method App\\\\Http\\\\Requests\\\\UpdateUserRequest\\:\\:messages\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: app/Http/Requests/UpdateUserRequest.php
-
-		-
-			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\DetailResource\\:\\:\\$created_at\\.$#"
-			count: 1
-			path: app/Http/Resources/DetailResource.php
-
-		-
-			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\DetailResource\\:\\:\\$icon\\.$#"
-			count: 1
-			path: app/Http/Resources/DetailResource.php
-
-		-
-			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\DetailResource\\:\\:\\$id\\.$#"
-			count: 1
-			path: app/Http/Resources/DetailResource.php
-
-		-
-			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\DetailResource\\:\\:\\$key\\.$#"
-			count: 1
-			path: app/Http/Resources/DetailResource.php
-
-		-
-			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\DetailResource\\:\\:\\$status\\.$#"
-			count: 1
-			path: app/Http/Resources/DetailResource.php
-
-		-
-			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\DetailResource\\:\\:\\$type\\.$#"
-			count: 1
-			path: app/Http/Resources/DetailResource.php
-
-		-
-			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\DetailResource\\:\\:\\$updated_at\\.$#"
-			count: 1
-			path: app/Http/Resources/DetailResource.php
-
-		-
-			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\DetailResource\\:\\:\\$user_id\\.$#"
-			count: 1
-			path: app/Http/Resources/DetailResource.php
-
-		-
-			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\DetailResource\\:\\:\\$value\\.$#"
-			count: 1
-			path: app/Http/Resources/DetailResource.php
-
-		-
-			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\UserResource\\:\\:\\$created_at\\.$#"
-			count: 1
-			path: app/Http/Resources/UserResource.php
-
-		-
-			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\UserResource\\:\\:\\$deleted_at\\.$#"
-			count: 1
-			path: app/Http/Resources/UserResource.php
-
-		-
-			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\UserResource\\:\\:\\$details\\.$#"
-			count: 1
-			path: app/Http/Resources/UserResource.php
-
-		-
-			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\UserResource\\:\\:\\$email\\.$#"
-			count: 1
-			path: app/Http/Resources/UserResource.php
-
-		-
-			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\UserResource\\:\\:\\$email_verified_at\\.$#"
-			count: 1
-			path: app/Http/Resources/UserResource.php
-
-		-
-			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\UserResource\\:\\:\\$firstname\\.$#"
-			count: 1
-			path: app/Http/Resources/UserResource.php
-
-		-
-			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\UserResource\\:\\:\\$full_name\\.$#"
-			count: 1
-			path: app/Http/Resources/UserResource.php
-
-		-
-			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\UserResource\\:\\:\\$gender\\.$#"
-			count: 1
-			path: app/Http/Resources/UserResource.php
-
-		-
-			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\UserResource\\:\\:\\$id\\.$#"
-			count: 1
-			path: app/Http/Resources/UserResource.php
-
-		-
-			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\UserResource\\:\\:\\$lastname\\.$#"
-			count: 1
-			path: app/Http/Resources/UserResource.php
-
-		-
-			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\UserResource\\:\\:\\$middle_initial\\.$#"
-			count: 1
-			path: app/Http/Resources/UserResource.php
-
-		-
-			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\UserResource\\:\\:\\$middlename\\.$#"
-			count: 1
-			path: app/Http/Resources/UserResource.php
-
-		-
-			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\UserResource\\:\\:\\$photo\\.$#"
-			count: 1
-			path: app/Http/Resources/UserResource.php
-
-		-
-			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\UserResource\\:\\:\\$prefixname\\.$#"
-			count: 1
-			path: app/Http/Resources/UserResource.php
-
-		-
-			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\UserResource\\:\\:\\$suffixname\\.$#"
-			count: 1
-			path: app/Http/Resources/UserResource.php
-
-		-
-			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\UserResource\\:\\:\\$type\\.$#"
-			count: 1
-			path: app/Http/Resources/UserResource.php
-
-		-
-			message: "#^Access to an undefined property App\\\\Http\\\\Resources\\\\UserResource\\:\\:\\$updated_at\\.$#"
-			count: 1
-			path: app/Http/Resources/UserResource.php
-
-		-
-			message: "#^Class App\\\\Models\\\\Detail uses generic trait Illuminate\\\\Database\\\\Eloquent\\\\Factories\\\\HasFactory but does not specify its types\\: TFactory$#"
-			count: 1
-			path: app/Models/Detail.php
-
-		-
-			message: "#^Method App\\\\Models\\\\Detail\\:\\:user\\(\\) has no return type specified\\.$#"
-			count: 1
-			path: app/Models/Detail.php
-
-		-
-			message: "#^PHPDoc type array\\<string\\> of property App\\\\Models\\\\Detail\\:\\:\\$fillable is not covariant with PHPDoc type array\\<int, string\\> of overridden property Illuminate\\\\Database\\\\Eloquent\\\\Model\\:\\:\\$fillable\\.$#"
-			count: 1
-			path: app/Models/Detail.php
-
-		-
-			message: "#^Method App\\\\Models\\\\User\\:\\:details\\(\\) should return Illuminate\\\\Database\\\\Eloquent\\\\Relations\\\\HasMany\\<App\\\\Models\\\\Detail, App\\\\Models\\\\User\\> but returns Illuminate\\\\Database\\\\Eloquent\\\\Relations\\\\HasMany\\<App\\\\Models\\\\Detail, \\$this\\(App\\\\Models\\\\User\\)\\>\\.$#"
-			count: 1
-			path: app/Models/User.php
-
-		-
-			message: "#^Method App\\\\Models\\\\User\\:\\:scopeUnverified\\(\\) should return Illuminate\\\\Database\\\\Eloquent\\\\Builder\\<App\\\\Models\\\\User\\> but returns Illuminate\\\\Database\\\\Query\\\\Builder\\.$#"
-			count: 1
-			path: app/Models/User.php
-
-		-
-			message: "#^Method App\\\\Models\\\\User\\:\\:scopeVerified\\(\\) should return Illuminate\\\\Database\\\\Eloquent\\\\Builder\\<App\\\\Models\\\\User\\> but returns Illuminate\\\\Database\\\\Query\\\\Builder\\.$#"
-			count: 1
-			path: app/Models/User.php
-
-		-
-			message: "#^Method App\\\\Models\\\\User\\:\\:scopeWithPhotos\\(\\) should return Illuminate\\\\Database\\\\Eloquent\\\\Builder\\<App\\\\Models\\\\User\\> but returns Illuminate\\\\Database\\\\Query\\\\Builder\\.$#"
-			count: 1
-			path: app/Models/User.php
-
-		-
-			message: "#^Method App\\\\Models\\\\User\\:\\:scopeWithPrefix\\(\\) has parameter \\$prefix with no type specified\\.$#"
-			count: 1
-			path: app/Models/User.php
-
-		-
-			message: "#^Call to an undefined method Illuminate\\\\Database\\\\Eloquent\\\\Relations\\\\HasMany\\<App\\\\Models\\\\Detail, App\\\\Models\\\\User\\>\\:\\:restore\\(\\)\\.$#"
-			count: 1
-			path: app/Observers/UserObserver.php
