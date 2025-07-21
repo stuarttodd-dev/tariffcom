@@ -86,6 +86,16 @@ echo ""
 echo "🌐 Running End-to-End Tests (Playwright)..."
 echo "------------------------------------------"
 
+# Build frontend before E2E tests
+if command -v npm &> /dev/null; then
+    echo "🛠️  Building frontend (npm run build)..."
+    npm run build
+    echo "✅ Frontend build complete!"
+else
+    echo "❌ npm not found. Please install Node.js."
+    exit 1
+fi
+
 # Check if Laravel app is running
 if curl -s http://localhost:8000 > /dev/null 2>&1; then
     echo "✅ Laravel app is running on http://localhost:8000"

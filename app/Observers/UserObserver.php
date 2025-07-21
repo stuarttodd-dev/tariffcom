@@ -3,6 +3,7 @@
 namespace App\Observers;
 
 use App\Models\User;
+use App\Events\UserSaved;
 
 class UserObserver
 {
@@ -11,7 +12,7 @@ class UserObserver
      */
     public function created(User $user): void
     {
-        $this->saveUserDetails($user);
+        UserSaved::dispatch($user);
     }
 
     /**
@@ -19,7 +20,7 @@ class UserObserver
      */
     public function updated(User $user): void
     {
-        $this->saveUserDetails($user);
+        UserSaved::dispatch($user);
     }
 
     /**
@@ -42,7 +43,7 @@ class UserObserver
     public function restored(User $user): void
     {
         $user->details()->restore();
-        $this->saveUserDetails($user);
+        event(new UserSaved($user));
     }
 
     /**
@@ -51,48 +52,5 @@ class UserObserver
     public function forceDeleted(User $user): void
     {
         unset($user);
-    }
-
-    /**
-     * Save user details to the details table.
-     */
-    private function saveUserDetails(User $user): void
-    {
-        $user->details()->forceDelete();
-
-        $details = [
-            [
-                'key' => 'Full Name',
-                'value' => $user->full_name,
-                'icon' => '👤',
-                'status' => '1',
-                'type' => 'bio',
-            ],
-            [
-                'key' => 'Middle Initial',
-                'value' => $user->middle_initial,
-                'icon' => '🔤',
-                'status' => '1',
-                'type' => 'bio',
-            ],
-            [
-                'key' => 'Avatar',
-                'value' => $user->photo ?: 'No photo available',
-                'icon' => '🖼️',
-                'status' => '1',
-                'type' => 'bio',
-            ],
-            [
-                'key' => 'Gender',
-                'value' => $user->gender,
-                'icon' => '⚧',
-                'status' => '1',
-                'type' => 'bio',
-            ],
-        ];
-
-        foreach ($details as $detail) {
-            $user->details()->create($detail);
-        }
     }
 }

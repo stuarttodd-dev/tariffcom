@@ -1,5 +1,5 @@
 <template>
-  <Head :title="`Edit User: ${user.full_name}`" />
+  <Head :title="`Edit User: ${user.data.full_name}`" />
 
   <AuthenticatedLayout>
     <template #header>
@@ -157,7 +157,7 @@
 
               <div class="flex justify-end space-x-3">
                 <Link
-                  :href="route('users.show', user.id)"
+                  :href="route('users.show', user.data.id)"
                   class="bg-gray-300 hover:bg-gray-400 text-gray-800 px-4 py-2 rounded-md"
                 >
                   Cancel
@@ -187,19 +187,19 @@ const props = defineProps({
 })
 
 const form = useForm({
-  prefixname: props.user.prefixname,
-  firstname: props.user.firstname,
-  middlename: props.user.middlename,
-  lastname: props.user.lastname,
-  suffixname: props.user.suffixname,
-  email: props.user.email,
+  prefixname: props.user.data.prefixname,
+  firstname: props.user.data.firstname,
+  middlename: props.user.data.middlename,
+  lastname: props.user.data.lastname,
+  suffixname: props.user.data.suffixname,
+  email: props.user.data.email,
   password: '',
   password_confirmation: '',
-  photo: props.user.photo,
-  type: props.user.type,
+  photo: props.user.data.photo,
+  type: props.user.data.type,
 })
 
 const submit = () => {
-  form.put(route('users.update', props.user.id))
+  form.put(route('users.update', props.user.data.id))
 }
 </script> 

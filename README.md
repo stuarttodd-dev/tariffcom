@@ -122,6 +122,7 @@ This section outlines potential enhancements.
 - **Unit Test Coverage**: Increase coverage for API resources, model relationships, and form request validation
 - **Success Notifications**: Implement toast notifications for all CRUD operations and form submissions
 - **Error Handling**: Improve user-friendly error messages and validation feedback
-- **Model Observer Pattern**: The application uses a UserObserver for handling user lifecycle events instead of creating separate events and listeners, which provides a cleaner and more maintainable approach to model event handling
+- **Static Analysis**: I baselined a lot of phpmd and phpstan issues, ideally they'd be resolved.
+- **Enums**: I'd have used enums for types.
 
 ---

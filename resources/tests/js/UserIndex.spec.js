@@ -56,7 +56,7 @@ describe('Users/Index.vue', () => {
         ]
         const wrapper = mount(UserIndex, {
             props: {
-                users,
+                users: { data: users },
                 filters: {}
             },
             global: {
@@ -83,7 +83,7 @@ describe('Users/Index.vue', () => {
         ]
         const wrapper = mount(UserIndex, {
             props: {
-                users,
+                users: { data: users },
                 filters: {}
             },
             global: {
@@ -108,7 +108,7 @@ describe('Users/Index.vue', () => {
         ]
         const wrapper = mount(UserIndex, {
             props: {
-                users,
+                users: { data: users },
                 filters: {}
             },
             global: {

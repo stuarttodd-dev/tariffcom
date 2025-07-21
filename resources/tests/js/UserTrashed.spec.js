@@ -29,7 +29,7 @@ describe('Users/Trashed.vue', () => {
         ]
         const wrapper = mount(TrashedUsers, {
             props: {
-                users,
+                users: { data: users },
                 filters: {}
             },
             global: {
@@ -56,7 +56,7 @@ describe('Users/Trashed.vue', () => {
         ]
         const wrapper = mount(TrashedUsers, {
             props: {
-                users,
+                users: { data: users },
                 filters: {}
             },
             global: {
@@ -81,7 +81,7 @@ describe('Users/Trashed.vue', () => {
         ]
         const wrapper = mount(TrashedUsers, {
             props: {
-                users,
+                users: { data: users },
                 filters: {}
             },
             global: {

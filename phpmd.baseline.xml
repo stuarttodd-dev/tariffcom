@@ -13,5 +13,6 @@
   <violation rule="PHPMD\Rule\CleanCode\StaticAccess" file="app/Http/Requests/StoreUserRequest.php"/>
   <violation rule="PHPMD\Rule\CleanCode\StaticAccess" file="app/Http/Requests/UpdateUserRequest.php"/>
   <violation rule="PHPMD\Rule\CleanCode\StaticAccess" file="app/Http/Resources/UserResource.php"/>
+  <violation rule="PHPMD\Rule\CleanCode\StaticAccess" file="app/Observers/UserObserver.php"/>
   <violation rule="PHPMD\Rule\CleanCode\StaticAccess" file="app/Providers/AppServiceProvider.php"/>
 </phpmd-baseline>
