@@ -124,5 +124,6 @@ This section outlines potential enhancements.
 - **Error Handling**: Improve user-friendly error messages and validation feedback
 - **Static Analysis**: I baselined a lot of phpmd and phpstan issues, ideally they'd be resolved.
 - **Enums**: I'd have used enums for types.
+- **Policies / Gates**: We've got different user types but nothing around permissions.
 
 ---
